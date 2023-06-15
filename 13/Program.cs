@@ -2,19 +2,17 @@
 
 void Hollyday(int num)
 {
-    if (0>num || num<6)
-    {
-        Console.WriteLine("нет");
-    }
-    else if (5>num || num<8)
-    {
-        Console.WriteLine("да");
-    }
-    else
-    {
-        Console.WriteLine("нет такого дня недели");
-    }
+   num=num/100%10;
+   if (num==0)
+   {
+    Console.WriteLine("нет третьего разряда");
+   }
+   else
+   {
+    Console.WriteLine(num);
+   }
 }
-Console.WriteLine("введите номер дня недели");
-int num= Convert.ToInt32(Console.ReadLine());
-Hollyday(num);
+Console.WriteLine("введите число");
+int number= Convert.ToInt32(Console.ReadLine());
+Hollyday(number);
+
