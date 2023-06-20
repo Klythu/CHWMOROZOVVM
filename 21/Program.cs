@@ -23,9 +23,11 @@
 //            break;
 //        }
 //    }
-//    for (i=0;i<array.Length-1;i++)
+//    i=0;
+//    while(i<array.Length)
 //    {
 //        array[i]=Convert.ToDouble(arr[i]);
+//        i++
 //    }
 //    return array;
 //}
