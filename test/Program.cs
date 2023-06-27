@@ -1,38 +1,31 @@
-﻿double[] ReadArr3(string input)
+﻿int[] FillArrayWithRandomNumber(int size)
 {
-    double[] array= new double[3];
-    string[] arr= new string[array.Length];
-    int i=0;
-    int j=0;
-    while (i<array.Length)
-   {
-        if (input[j].Equals("."))
-        {
-            i++;
-            j++;
-        }
-        if (input[j].Equals(" "))
-        {
-            j++;
-        }
-        arr[i]=arr[i]+input[j];
-        j++;
-        if (j>=input.Length-1)
-        {
-            break;
-        }
-    }
-    i=0;
-    while(i<array.Length)
-    {
-        array[i]=Convert.ToDouble(arr[i]);
-        i++;
-    }
-    return array;
+int[] arr = new int[size];
+Random rnd = new Random();
+for (int i = 0; i < arr.Length; i++)
+{
+arr[i] = rnd.Next(-9, 10);
 }
-Console.WriteLine("введите координаты первого вектора");
-double[] arr1= new double[3];
-arr1=ReadArr3(Console.ReadLine());
-Console.WriteLine(arr1[0]+1);
-Console.WriteLine(arr1[1]+1);
-Console.WriteLine(arr1[2]+1);
+return arr;
+}
+
+System.Console.Write("Введите кол-во элементов массива: ");
+int length = Convert.ToInt32(Console.ReadLine());
+int[] array = FillArrayWithRandomNumber(length);
+System.Console.WriteLine(string.Join("; ", array));
+
+int sumPositive = 0;
+int sumNegative = 0;
+
+for (int i = 0; i < array.Length; i++)
+{
+if (array[i] > 0)
+{
+sumPositive += array[i];
+}
+else
+{
+sumNegative += array[i];
+}
+}
+System.Console.WriteLine($"Сумма положительных = {sumPositive}, а сумма отрицательных = {sumNegative}");
